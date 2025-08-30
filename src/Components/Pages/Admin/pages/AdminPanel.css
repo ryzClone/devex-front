@@ -1,0 +1,228 @@
+/* AdminPanel global container */
+.adminpanel-container {
+  padding: 2rem;
+  background-color: #f5f5f5;
+  font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+}
+
+/* Interval selector wrapper - chapga surish */
+.adminpanel-interval-selector {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+/* Interval tugmalari kichik va to'rtburchak */
+.adminpanel-interval-btn {
+  padding: 6px 14px;
+  border: 2px solid #2e2559;
+  background: #ffffff;
+  color: #2e2559;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.adminpanel-interval-btn.active,
+.adminpanel-interval-btn:hover {
+  background: #2e2559;
+  color: #ffffff;
+}
+
+/* Cards container */
+.adminpanel-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Individual cards */
+.adminpanel-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.adminpanel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Card header */
+.adminpanel-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #2e2559;
+  flex-wrap: wrap;
+}
+
+/* Icons and values */
+.adminpanel-icon {
+  font-size: 1.4rem;
+}
+
+.adminpanel-value {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0.5rem 0 1rem 0;
+  color: #3c3277;
+}
+
+/* Left border for different types */
+.adminpanel-border-employee {
+  border-left: 6px solid #2e2559;
+}
+.adminpanel-border-support {
+  border-left: 6px solid #504973;
+}
+.adminpanel-border-position {
+  border-left: 6px solid #3c3277;
+}
+
+/* Excel and View buttons */
+.adminpanel-excel-btn,
+.adminpanel-view-btn {
+  margin-left: 10px;
+  background-color: #42a5f5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.adminpanel-excel-btn:hover,
+.adminpanel-view-btn:hover {
+  background-color: #2e2559;
+}
+
+/* Date filter */
+.adminpanel-date-filter {
+  display: flex;
+  gap: 5px;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+.adminpanel-date-filter input[type="date"] {
+  border: 1px solid #504973;
+  border-radius: 5px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #2e2559;
+}
+
+.adminpanel-date-filter button {
+  border: none;
+  border-radius: 5px;
+  padding: 4px 8px;
+  background-color: #42a5f5;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.adminpanel-date-filter button:hover {
+  background-color: #2e2559;
+}
+
+/* Modal overlay */
+.adminpanel-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content */
+.adminpanel-modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 700px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Table inside modal */
+.adminpanel-modal-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.adminpanel-modal-content th,
+.adminpanel-modal-content td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* Table header style */
+.adminpanel-modal-content th {
+  background-color: #f0f0f0;
+  color: #2e2559;
+  font-weight: 600;
+}
+
+/* Close modal button */
+.adminpanel-close-modal {
+  background: #2e2559;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.adminpanel-close-modal:hover {
+  background: #504973;
+}
+
+.adminpanel-modal-title{
+  margin-bottom: 10px;
+  color: #2e2559;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .adminpanel-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .adminpanel-date-filter {
+    width: 100%;
+    margin-left: 0;
+    gap: 5px;
+  }
+
+  .adminpanel-excel-btn,
+  .adminpanel-view-btn {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+}

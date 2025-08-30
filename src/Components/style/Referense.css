@@ -1,0 +1,17 @@
+.Success {
+    min-width: 250px;
+    position: fixed;
+    right: 20px;
+    top: 5%;
+    padding: 15px 25px;
+    z-index: 10;
+    border-radius: 8px;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

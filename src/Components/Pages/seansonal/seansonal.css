@@ -1,0 +1,87 @@
+.snowfall {
+  position: fixed; /* Ekranning ustida joylashishi */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Ekran kengligi */
+  height: 100vh; /* Ekran balandligi */
+  pointer-events: none; /* Foydalanuvchi bilan interaktsiya bo'lmasligi uchun */
+  z-index: 9999; /* Ekranning eng yuqorisida joylashadi */
+  overflow: hidden; /* Ekranning tashqarisiga chiqmaslik */
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px; /* Boshlang'ich joy yuqoridan */
+  width: 20px; /* Qor parchasi o'lchami */
+  height: 20px; /* Qor parchasi o'lchami */
+  background-size: contain; /* Rasmni to'liq sig'dirish, lekin kesmasdan */
+  opacity: 0.8;
+  animation: fall linear infinite, spin 3s linear infinite; /* Tushish va aylanish animatsiyasi */
+  background-repeat: no-repeat;
+}
+
+/* Tushish animatsiyasi */
+@keyframes fall {
+  0% {
+      top: -10px;
+      opacity: 0.8;
+      transform: translateX(0); /* Chapdan o'ngga siljishning boshlanishi */
+  }
+  100% {
+      top: 100vh;
+      opacity: 0.8;
+      transform: translateX(10vw); /* O'ngga qarab siljishi */
+  }
+}
+
+/* Aylanish animatsiyasi */
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  50% {
+      transform: rotate(180deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+/* Har bir qor parchasining tasodifiy tezligi */
+.snowflake:nth-child(odd) {
+  animation-duration: 8s, 3s; /* Tushish va aylanish tezligi */
+}
+
+.snowflake:nth-child(even) {
+  animation-duration: 10s, 4s; /* Tushish va aylanish tezligi */
+}
+
+.snowflake:nth-child(3n) {
+  animation-duration: 12s, 5s; /* Tushish va aylanish tezligi */
+}
+
+.snowflake:nth-child(4n) {
+  animation-duration: 7s, 2s; /* Tushish va aylanish tezligi */
+}
+
+/* Ba'zilari kichikroq bo'lishi kerak */
+.snowflake {
+  width: 20px;
+  height: 20px;
+}
+
+.snowflake:nth-child(odd) {
+  width: 25px;
+  height: 25px;
+}
+
+.snowflake:nth-child(4n) {
+  width: 15px;
+  height: 15px;
+}
+
+/* Har bir qor parchasining tasodifiy boshlang'ich joylari */
+.snowflake {
+  left: calc(100% * random());
+  animation-delay: calc(-5s + 10 * random()); /* Animatsiya boshlanishining tasodifiy kechikishi */
+}

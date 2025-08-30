@@ -1,0 +1,83 @@
+/* Modal orqa fon */
+.excel-export-modal {
+    position: fixed;
+    top: 0%; /* Modal ekranning tepa qismida joylashadi */
+    left: 50%;
+    transform: translate(-50%, 0); /* O'ngga siljish oldini oladi */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Orqa fon biroz qoraytirildi */
+    display: flex;
+    align-items: flex-start; /* Modal tepa qismga yaqinlashadi */
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Modal oynasi */
+.excel-export {
+    margin-top: 5%;
+    width: 450px; /* Kattaroq qilindi */
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Sarlavha */
+.excel-export h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* Label */
+.excel-export label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Kiritish maydonlari */
+.excel-export select,
+.excel-export input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-bottom: 12px;
+    outline: none;
+}
+
+/* Tugmalar */
+.button-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.excel-export button {
+    flex: 1;
+    padding: 12px;
+    background-color: #2e2559;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.excel-export button:hover {
+    background-color: #231c46;
+}
+
+/* Yopish tugmasi */
+.excel-export .close-button {
+    background-color: #3A2E6D ;
+}
+
+.excel-export .close-button:hover {
+    background-color: #3A2E6D ;
+}

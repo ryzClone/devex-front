@@ -1,0 +1,85 @@
+{
+  "name": "mpapp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^43.1.0",
+    "@ckeditor/ckeditor5-react": "^9.1.0",
+    "@cyntler/react-doc-viewer": "^1.17.0",
+    "@fortawesome/fontawesome-free": "^6.6.0",
+    "@pdf-lib/fontkit": "^1.1.1",
+    "@pdftron/webviewer": "^10.12.0",
+    "@react-pdf-viewer/core": "^3.12.0",
+    "@react-pdf-viewer/default-layout": "^3.12.0",
+    "@react-pdf/renderer": "^3.4.5",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.5",
+    "chart.js": "^4.4.6",
+    "chartjs-plugin-datalabels": "^2.2.0",
+    "date-fns": "^2.30.0",
+    "docx": "^8.5.0",
+    "docxtemplater": "^3.50.0",
+    "dotenv": "^16.4.6",
+    "file-saver": "^2.0.5",
+    "fontkit": "^2.0.4",
+    "fs-extra": "^11.2.0",
+    "html2canvas": "^1.4.1",
+    "html2pdf.js": "^0.10.2",
+    "jspdf": "^2.5.2",
+    "jspdf-autotable": "^3.8.3",
+    "jszip": "^3.10.1",
+    "jszip-utils": "^0.1.0",
+    "mammoth": "^1.8.0",
+    "officegen": "^0.6.5",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^3.11.174",
+    "pizzip": "^3.1.7",
+    "quill": "^2.0.2",
+    "react": "^18.3.1",
+    "react-chartjs-2": "^5.2.0",
+    "react-datepicker": "^4.8.0",
+    "react-decoration": "^2.1.0",
+    "react-doc-viewer": "^0.1.14",
+    "react-dom": "^18.3.1",
+    "react-freeze": "^1.0.4",
+    "react-icons": "^5.3.0",
+    "react-pdf": "^9.1.0",
+    "react-quill": "^2.0.0",
+    "react-router-dom": "^6.24.1",
+    "react-scripts": "5.0.1",
+    "react-select": "^5.10.1",
+    "react-snow-effect": "^1.2.0",
+    "react-snowfall": "^2.2.0",
+    "react-snowstorm": "^0.0.3",
+    "recharts": "^3.1.2",
+    "stream-browserify": "^3.0.0",
+    "swiper": "^11.1.4",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

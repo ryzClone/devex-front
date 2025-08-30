@@ -1,0 +1,312 @@
+.texnika-chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 40px 0px;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.donut-chart-container {
+  display: flex;
+  justify-content: space-between; /* Align charts in a row */
+  width: 100%;
+  gap: 40px;
+  flex-wrap: wrap; /* Wrap on smaller screens */
+}
+
+.donut-chart {
+  width: 32%; /* Slightly narrower to make room for larger line chart */
+  min-width: 300px;
+  max-width: 500px; /* Prevent charts from growing too large on big screens */
+  height: 400px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.donut-chart h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px; /* More space for readability */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.chart-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  max-width: 80%;
+}
+
+.loader {
+  text-align: center;
+  font-size: 20px;
+  color: #666;
+  margin-top: 40px;
+  font-weight: 600;
+}
+
+.donut-chart p {
+  font-size: 16px;
+  color: #666;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.chart-stats {
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chart-stats p {
+  margin: 5px 0;
+}
+
+/* Container for line charts */
+.line-charts {
+  width: 100%;
+  margin-top: 40px;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.line-charts h3 {
+  font-size: 24px; /* Larger for more prominence */
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 25px; /* More spacing for clarity */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Line chart canvas styling */
+.line-charts canvas {
+  max-width: 100%;
+  height: 450px; /* Larger height for better visibility */
+  margin: 0 auto;
+}
+
+.donut-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 1280px) {
+  .donut-chart {
+    width: 40%;
+    height: 380px;
+  }
+
+  .line-charts h3 {
+    font-size: 22px;
+  }
+
+  .line-charts canvas {
+    height: 400px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .donut-chart {
+    width: 45%;
+    height: 350px;
+  }
+
+  .line-charts h3 {
+    font-size: 22px;
+  }
+
+  .line-charts canvas {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .donut-chart-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .donut-chart {
+    width: 100%;
+    height: 350px;
+  }
+
+  .texnika-chart-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .line-charts {
+    padding: 20px;
+  }
+
+  .line-charts h3 {
+    font-size: 20px;
+  }
+
+  .line-charts canvas {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .donut-chart h3 {
+    font-size: 18px;
+  }
+
+  .donut-chart p {
+    font-size: 14px;
+  }
+
+  .texnika-chart-container {
+    gap: 20px;
+  }
+
+  .line-charts {
+    padding: 15px;
+  }
+
+  .line-charts h3 {
+    font-size: 18px;
+  }
+
+  .line-charts canvas {
+    height: 300px;
+  }
+}
+
+/* Uploading excel file */
+.uploading-excel{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 30px;
+}
+.uploading-excel button{
+  border: none;
+  border-radius: 10px;
+  background-color: #2e2559;
+  color: #fff;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.uploading-excel button:hover{
+  transform: scale(1.05);
+}
+.uploading-excel .uploading_errors{
+  background-color: rgb(186, 81, 81);
+  display: none;
+}
+
+/* Errors modal */
+.uploading-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.uploading-modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: left;
+  width: 600px;
+  max-height: 80vh; /* Ekranning 80% balandligi */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.uploading-modal h2 {
+  margin: 0 0 15px 0;
+  font-size: 30px;
+  text-align: center;
+}
+
+/* Error list container */
+.uploading-modal-content {
+  max-height: 60vh; /* Skroll bo‘lishi uchun */
+  overflow-y: auto;
+  margin: 20px 0px;
+}
+
+/* Error item styling */
+.uploading-error-item {
+  background: #ffecec;
+  color: #d8000c;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-left: 5px solid #d8000c;
+  border-radius: 5px;
+  font-size: 14px;
+  word-break: break-word;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effekti */
+.uploading-error-item:hover {
+  background: #f8d7da;
+  color: #a00000;
+  cursor: pointer;
+}
+
+/* Close button */
+.uploading-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+.uploading-modal-close:hover {
+  color: #d8000c;
+}
+
+.uploading_errors.show {
+  display: block; /* uploadErrorsBtn true bo‘lsa ko‘rinadi */
+}

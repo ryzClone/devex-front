@@ -1,0 +1,183 @@
+.largemodal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 101;
+}
+
+.largemodal-content {
+  background: white; /* Keeping the original light background */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.largemodal-content h2 {
+  padding: 10px 0px 10px 10px;
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.largemodal-close-btn {
+  align-self: flex-end;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 10px;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.largemodal-body {
+  display: flex;
+  height: calc(100% - 40px);
+}
+
+.largemodal-left {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
+
+.input-row {
+  display: flex;
+  gap: 20px;
+}
+
+.largemodal-left label {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.largemodal-input,
+select.largemodal-input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 4px;
+  background-color: #f7f7f7; /* Light background for inputs */
+  color: #2e2559; /* Dark text color */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+
+.largemodal-input:hover,
+select.largemodal-input:hover {
+  background-color: #e2e2e2; /* Slightly darker on hover */
+}
+
+.largemodal-input:focus,
+select.largemodal-input:focus {
+  background-color: #fff; /* White background on focus */
+  color: #2e2559; /* Dark text */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+select.largemodal-input {
+  appearance: none;
+  background: #f7f7f7 url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="none" stroke="%232e2559" stroke-width=".5" d="M2 0L0 2h4z"/></svg>') no-repeat right 10px center;
+  background-size: 10px;
+  padding-right: 30px;
+  border-radius: 6px; /* Round the corners */
+  border: 1px solid #ccc; /* Light gray border */
+}
+
+.largemodal-right {
+  flex: 1;
+  padding: 20px;
+  border-left: 1px solid #ccc;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.largemodal-right iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.largemodal-submit-btn {
+  background-color: #2e2559; /* Dark purple button */
+  color: #fff; /* White text */
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.largemodal-submit-btn:hover {
+  background-color: #504973; /* Lighter purple on hover */
+}
+
+.largemodal-submit-btn:active {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle active state */
+}
+
+.largemodal-submit-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.file-label {
+  background-color: #28a745; /* Green */
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.file-label:hover {
+  background-color: #218838;
+}
+
+.file-label:active {
+  background-color: #1e7e34;
+}
+
+.file-label:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .largemodal-content {
+    width: 90%;
+    height: 90%;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,231 @@
+/* Modal Overlay */
+.history_modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+/* Modal Content */
+.history_modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Close Button */
+.history_modal-close {
+    position: absolute;
+    background-color: initial;
+    top: 40px;
+    right: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    color: #1a1a3e;
+    padding: 4px 9px 0px 9px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    border: 1px solid #1a1a3e;
+}
+.history_modal-close:hover {
+    background-color: #1a1a3e;
+    color: #ffffff;
+}
+
+/* Controls Section */
+.history_modal-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 50px 30px 0px;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pagination-button {
+    padding: 10px;
+    border: none;
+    background-color: #2e2559;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.pagination-button:hover {
+    background-color: #1a1a3e;
+}
+
+.pagination-page {
+    font-size: 15px;
+}
+
+.pagination-select {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Right Controls - Search and Dropdown */
+.history_modal-controls-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.history_modal-search input {
+    padding: 8px;
+    border: 1px solid #1a1a3e;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    width: 150px;
+    outline: none;
+    color: #1a1a3e;
+}
+
+.history_modal-search input::placeholder {
+    color: #1a1a3e;
+}
+
+.history_modal-dropdown {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.history_modal-dropdown label {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-dropdown-button {
+    padding: 8px;
+    border: 1px solid #1a1a3e;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    background-color: #ffffff;
+    color: #1a1a3e;
+    cursor: pointer;
+    width: 170px;
+}
+
+.custom-dropdown-content {
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #1a1a3e;
+    border-radius: 5px;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: none;
+}
+
+.custom-dropdown-content div {
+    padding: 8px;
+    color: #1a1a3e;
+    cursor: pointer;
+}
+
+.custom-dropdown-content div:hover {
+    background-color: #2e2559;
+    color: #ffffff;
+}
+
+/* Aktiv bo‘lsa ochiladi */
+.custom-dropdown.active .custom-dropdown-content {
+    display: block;
+}
+
+/* Table */
+.history_info-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    margin-bottom: 50px;
+}
+
+.history_info-table th,
+.history_info-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.history_info-table thead th {
+    background-color: #2e2559;
+    color: #ffffff;
+    padding: 15px 10px;
+    white-space: nowrap; /* Qo‘shildi */
+}
+
+.history_info-table tbody tr {
+    background-color: #e1dfdf;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.history_info-table tbody tr:hover {
+    background-color: rgb(202, 199, 199);
+}
+
+.history_info-table-download {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    color: #2e2559;
+    transition: all 0.3s ease;
+    padding: 5px;
+}
+
+.history_info-table-download:hover {
+    transform: scale(1.2);
+}
+
+.history_info-table th.short-column {
+    width: 500px;
+}
+
+.history_info-table th.word-column {
+    max-width: 100px;
+}
+
+.export-table-btn{
+    background-color: #2e2559;
+    padding: 8px 15px;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.export-table-btn:hover{
+    transform: scale(1.1);
+}
