@@ -16,6 +16,8 @@ import AdminPanel from "./Components/Pages/Admin/pages/AdminPanel";
 import AdminPanelPosition from "./Components/Pages/Admin/components/Position/AdminPanelPosition";
 import AdminPanelEmployee from "./Components/Pages/Admin/components/Employee/AdminEmployee";
 import AdminPanelSupportEmployee from "./Components/Pages/Admin/components/Support_employee/AdminPanelSupportEmployee";
+import AdminPanelOperationalSystem from "./Components/Pages/Admin/components/Operational_system/AdminPanelOperationalSystem";
+import AdminPanelInstalledSoftware from "./Components/Pages/Admin/components/Installed_software/AdminPanelInstalledSoftware";
 
 export default function App() {
   return (
@@ -38,8 +40,8 @@ export default function App() {
           <Route path="/website/adminpanel/employee" element={<AdminPanelEmployee />} />
           <Route path="/website/adminpanel/support-staff" element={<AdminPanelSupportEmployee />} />
           <Route path="/website/adminpanel/position" element={<AdminPanelPosition />} />
-          <Route path="/website/adminpanel/operatingsystem" element={<AdminPanel />} />
-          <Route path="/website/adminpanel/installedsoftware" element={<AdminPanel />} />
+          <Route path="/website/adminpanel/operating-systems" element={<AdminPanelOperationalSystem />} />
+          <Route path="/website/adminpanel/installed-software" element={<AdminPanelInstalledSoftware />} />
 
           <Route path="*" element={<Error />} />
         </Route>

@@ -3,6 +3,7 @@ import { FaPlus, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "../../style/AdminPanel.css";
 import AddOperationalSystemModal from "./AddOperationalSystemModal";
 import Referense from "../../../Referense";
+import SoftwareMultiSelect from "./SoftwareMultiSelect";
 
 const BACK_API = process.env.REACT_APP_BACK_API;
 
@@ -14,7 +15,7 @@ export default function AdminPanelOperationalSystem() {
 
   const [showAdd, setShowAdd] = useState(false);
   const [editing, setEditing] = useState(null);
-  const [editingData, setEditingData] = useState({ name: "", shortname: "" });
+  const [editingData, setEditingData] = useState({ name: "" });
 
   const [text, setText] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
@@ -25,7 +26,7 @@ export default function AdminPanelOperationalSystem() {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        `${BACK_API}api/viewoperatsionsystem?page=${page}&size=${size}`,
+        `${BACK_API}api/viewoperatingsystem?page=${page}&size=${size}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       const result = await res.json();
@@ -40,55 +41,60 @@ export default function AdminPanelOperationalSystem() {
     fetchSystems();
   }, [page, size]);
 
-  // Add
-  const addSystem = async (newData) => {
-    try {
-      const token = localStorage.getItem("token");
-      const response = await fetch(`${BACK_API}api/createoperatsionsystem`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(newData),
-      });
+// Add
+const addSystem = async (data) => {
+  try {
+    const token = localStorage.getItem("token");
+    const response = await fetch(`${BACK_API}api/createoperatingsystem`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    });
 
-      if (response.ok) {
-        const result = await response.json();
-        setSuccess(true);
-        setText(result.message || "Операционная система успешно добавлена!");
-        setShowSuccess(true);
-        setTimeout(() => {
-          setShowSuccess(false);
-          fetchSystems();
-        }, 3000);
-      } else {
-        const errorResult = await response.json();
-        setText(errorResult.message || "Ошибка при добавлении!");
-        setSuccess(false);
-        setShowSuccess(true);
-        setTimeout(() => setShowSuccess(false), 3000);
-      }
-    } catch (err) {
-      setText("Ошибка при добавлении!");
+    if (response.ok) {
+      const result = await response.json();
+      setSuccess(true);
+      setText(result.message || "Успешно добавлено!");
+      setShowSuccess(true);
+      setTimeout(() => {
+        setShowSuccess(false);
+        fetchSystems(); // listni yangilash
+      }, 3000);
+    } else {
+      const errorResult = await response.json();
+      setText(errorResult.message || "Ошибка при добавлении!");
       setSuccess(false);
       setShowSuccess(true);
       setTimeout(() => setShowSuccess(false), 3000);
     }
-  };
+  } catch (err) {
+    console.error(err);
+    setText("Ошибка при добавлении!");
+    setSuccess(false);
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 3000);
+  }
+};
+
 
   // Update
   const updateSystem = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${BACK_API}api/updateoperatsionsystem/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(editingData),
-      });
+      const response = await fetch(
+        `${BACK_API}api/updateoperatingsystem/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(editingData),
+        }
+      );
 
       if (response.ok) {
         const result = await response.json();
@@ -120,10 +126,13 @@ export default function AdminPanelOperationalSystem() {
     if (!window.confirm("Удалить операционную систему?")) return;
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${BACK_API}api/deleteoperatsionsystem/${id}`, {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await fetch(
+        `${BACK_API}api/deleteoperatingsystem/${id}`,
+        {
+          method: "DELETE",
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
 
       if (response.ok) {
         const result = await response.json();
@@ -196,7 +205,7 @@ export default function AdminPanelOperationalSystem() {
           <tr>
             <th>ID</th>
             <th>Название ОС</th>
-            <th>Краткое имя</th>
+            <th>Программы</th>
             <th className="table-action">Действия</th>
           </tr>
         </thead>
@@ -220,21 +229,20 @@ export default function AdminPanelOperationalSystem() {
                 )}
               </td>
 
-              {/* Краткое имя */}
+              {/* Программы */}
               <td>
                 {editing === os.id ? (
-                  <input
-                    className="adminPanel-input-edit"
-                    value={editingData.shortname}
-                    onChange={(e) =>
-                      setEditingData({
-                        ...editingData,
-                        shortname: e.target.value,
-                      })
-                    }
+                  <SoftwareMultiSelect
+                    os={os}
+                    editingData={editingData}
+                    setEditingData={setEditingData}
                   />
                 ) : (
-                  os.shortname
+                  <ul>
+                    {os.softwares?.map((s) => (
+                      <li key={s.id}>{s.name}</li>
+                    ))}
+                  </ul>
                 )}
               </td>
 
@@ -255,7 +263,7 @@ export default function AdminPanelOperationalSystem() {
                         setEditing(os.id);
                         setEditingData({
                           name: os.name,
-                          shortname: os.shortname,
+                          softwares: os.softwares?.map((s) => s.id) || [],
                         });
                       }}
                     >
